@@ -13,6 +13,8 @@ NORTH = 90  # Угол северного направления.
 SOUTH = 270  # Угол южного направления.
 EAST = 0  # Угол восточного направления.
 WEST = 180  # Угол западного направления.
+TARGET_ANGLE = 68  # Угол для попадения в цель.
+FORCE = 9  # Сила удара.
 
 # Настроить окно.
 turtle.setup(SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -61,3 +63,11 @@ if (turtle.xcor() >= TARGET_LLEFT_X
     print('Цель поражена!')
 else:
     print('Вы промахнулись.')
+    if turtle.heading() < TARGET_ANGLE:
+        print('Возьмите угол побольше!')
+    elif turtle.heading() > TARGET_ANGLE:
+        print('Возьмите угол поменьше!')
+    elif force < FORCE:
+        print('Увеличьте силу удара!')
+    elif force > FORCE:
+        print('Уменьшите силу удара!')
